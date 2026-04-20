@@ -2,8 +2,6 @@
 
 Minimal POC: a zio.blocks-based DynamoDB codec vs dynosaur.
 
-## The pitch in 30 seconds
-
 **Dynosaur** requires lines of manual schema per record, uses an intermediate `DynamoValue` representation, and merges N single-field maps (O(N^2) encoding).
 
 **This approach** derives codecs from `case class ... derives Schema` with zero boilerplate, encodes directly to `AttributeValue`, and uses a pre-computed field array with register-based access (O(N) encoding).
